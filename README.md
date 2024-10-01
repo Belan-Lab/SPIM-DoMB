@@ -1,6 +1,7 @@
 <p align="left">
 <a href="#logo" name="logo"><img src="https://raw.githubusercontent.com/bionanoimaging/UC2-GIT/master/IMAGES/UC2_logo_text.png" width="400"></a>
 </p>
+
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
 
 # openUC2 solutions for DoMB
@@ -11,7 +12,7 @@ This repo will contain hardware solutions and adaptations of original openUC2 pa
 
 ---
 
-## openSCAD C-mount cube insert
+## C-mount cube insert
 Parametric model of a cube insert with C-mount thread.
 
 ![](img/c-mount_cune_insert.png)
