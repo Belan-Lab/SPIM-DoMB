@@ -62,7 +62,7 @@ module ClosePoints(pointarrays) {
 }   
     
 // This creates a vertical rod at the origin with external threads.
-module CmountThread(height, pitch=0, tooth_angle=30, tolerance=0.4, tip_height=0, tooth_height=0, tip_min_fract=0) {
+module CmountThread(height, tooth_angle=30, tolerance=0.4, tip_height=0, tooth_height=0, tip_min_fract=0) {
 
   outer_diam=25.4;
   pitch = 0.794;
@@ -205,4 +205,4 @@ module CmountInsert(insert_height=5, tube_height=5, thread_len=5, wall=2) {
             }
 }
 
-CmountInsert();
+CmountInsert(insert_height=8, tube_height=25);

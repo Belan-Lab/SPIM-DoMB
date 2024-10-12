@@ -12,11 +12,43 @@ This repo will contain hardware solutions and adaptations of original openUC2 pa
 
 ---
 
-## C-mount cube insert
-Parametric model of a cube insert with C-mount thread.
+## C-mount adapter
+Parametric model of a cube insert with C-mount thread (_c-mount_insert_v0.scad_).
 
-![](img/c-mount_cune_insert.png)
+__Model__
+![](img/c-mount_cube_insert.png)
 
+__Printed long insert__
+![](img/c-mount_photo.jpg)
+
+__Installed insert__
+![](img/c-mount_in_cube.jpg)
+
+##  LED control and power source V0
+Parametric model of a cube insert with two LED dimmers and 9V output with type-C Power Delivery input (_led_power_insert_v0.scad_).
+
+__Model__
+![](img/led_power_cube_insert_v0.png)
+
+Part|#|Cost/unit|Link
+-|-|-|-
+LED dimmer | 2x | $2.72   | [AliExpress](https://a.aliexpress.com/_EuX3DTP) 
+PD module 9V | 1x | $0.44   | [AliExpress](https://a.aliexpress.com/_Ezeg4Hf) 
+Mini560 Pro Step Down to 3.3V| 1x | $0.81  | [AliExpress](https://a.aliexpress.com/_EJQFP5x) 
+White LED 10W 3V (XML2) | 1x | $1.29  | [AliExpress](https://a.aliexpress.com/_EHBMyXT) 
+460 nm LED 3W 3V (10 pc) | 1x | $1.94   | [AliExpress](https://a.aliexpress.com/_EI94HWN)
+XT30 connector | 3x | $0.6  | [arduino.ua](https://arduino.ua/prod5276-xt30-konnektor-para-dlya-podklucheniya-li-po-li-ion-akkymylyatorov)
+
+__Assembled power cube__
+![](img/power_cube_close_up.jpg)
+
+__Power cube with two LED cubes__
+![](img/power_cube_connected.jpg)
+
+__White 10W LED cube with radiator from northbridge__
+![](img/white_led_front.jpg)
+
+![](img/white_led_back.jpg)
 
 ## Z-stage with CD-drive steppers
 In progress.
