@@ -12,7 +12,8 @@ This repo will contain hardware solutions and adaptations of original openUC2 pa
 
 ---
 
-## C-mount adapter
+## Hardware
+### C-mount adapter
 Parametric model of a cube insert with C-mount thread (_c-mount_insert_v0.scad_).
 
 __Model__
@@ -24,7 +25,7 @@ __Printed long insert__
 __Installed insert__
 ![](img/c-mount_in_cube.jpg)
 
-##  LED control and power source V0
+###  LED control and power source V0
 Parametric model of a cube insert with two LED dimmers and 9V output with type-C Power Delivery input (_led_power_insert_v0.scad_).
 
 __Model__
@@ -50,8 +51,27 @@ __White 10W LED cube with radiator from northbridge__
 
 ![](img/white_led_back.jpg)
 
-## Z-stage with CD-drive steppers
+### Servo stage for light-sheet V0
+
+__Model__
+![](img/servo_stage_v0_scad.png)
+_Inclides openSCAD library "Bibliothek für Evolventen-Zahnräder, Schnecken und Zahnstangen" (gear.scad)_
+
+
+__Assembled cube__
+in progress
+
+### Z-stage with CD-drive steppers
 In progress.
 
-## XY-stage with CD-drive steppers
+### XY-stage with CD-drive steppers
 In progress.
+
+## Software
+All control is provided with [Micro-Manager](https://micro-manager.org/) and [pymmcore-plus](https://pymmcore-plus.github.io/pymmcore-plus/) library with [napari-micromanager](https://pymmcore-plus.github.io/napari-micromanager/) GUI.
+
+__Configuration__
+Component | Desctiption | Micro-manager adapter
+- | - | -
+Camera | FLIR Grasshopper3 USB3 | [Point Grey Research](https://micro-manager.org/Point_Grey_Research)
+Stage | Servo stage | [CustomArduino](https://micro-manager.org/CustomArduino) (MarzhauserLStep Z-stage)

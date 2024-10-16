@@ -9,6 +9,7 @@ h = 5; //holder height
 IM_offset = 0.2;
 
 module CubeInsert () {
+    translate([0, 0, h/2])
     difference(){
         union() {   //basic insert design
             cube([a,b+2*IM_offset,h], center=true);
