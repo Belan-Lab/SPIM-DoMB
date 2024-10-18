@@ -123,7 +123,9 @@ module ServoInsert() {
       translate([-47/2,-(rail_width/2+2*IM_offset+2),h])
       cube([47,2,5]);
       
-
+      translate([-17,
+                 -(servo_w+rail_width/2+IM_offset+5),
+                 h])
 //      translate([0,0,0])
       union(){  
         translate([0,
