@@ -12,8 +12,8 @@ This repo will contain hardware solutions and adaptations of original openUC2 pa
 
 ---
 
-## Hardware
-### C-mount adapter
+# Hardware
+## C-mount adapter
 Parametric model of a cube insert with C-mount thread (_c-mount_insert_v0.scad_).
 
 __Model__
@@ -25,7 +25,7 @@ __Printed long insert__
 __Installed insert__
 ![](img/c-mount_in_cube.jpg)
 
-###  LED control and power source V0
+##  LED control and power source V0
 Parametric model of a cube insert with two LED dimmers and 9V output with type-C Power Delivery input (_led_power_insert_v0.scad_).
 
 __Model__
@@ -51,23 +51,34 @@ __White 10W LED cube with radiator from northbridge__
 
 ![](img/white_led_back.jpg)
 
-### Servo stage for light-sheet V0
+## Servo stage for light-sheet V1
+The holder was adapted to install a plastic photometric cuvette for sample mounting.
 
 __Model__
-![](img/servo_stage_v0_scad.png)
+![](img/servo_stage_v1_scad.png)
 _Inclides openSCAD library "Bibliothek für Evolventen-Zahnräder, Schnecken und Zahnstangen" (gear.scad)_
 
-
 __Assembled cube__
-in progress
+![](img/servo_stage_v1_side.jpg)
 
-### Z-stage with CD-drive steppers
-In progress.
+![](img/servo_stage_v1_top.jpg)
 
-### XY-stage with CD-drive steppers
-In progress.
+## RGB laser block V0
 
-## Software
+The first version for the RGB laser module is just a horizontal insert for 2x base cube with four mount holes.
+
+__Model__
+![](img/laser_insert_v0_scad.png)
+
+Part|#|Cost/unit|Link
+-|-|-|-
+RGB laser module | 1x | $19.5 | [AliExpress](https://a.aliexpress.com/_EHowiiN)
+DIN 912 M3 | 4x |  -  | [AliExpress](https://a.aliexpress.com/_EuX3DTP) 
+M3 nuts | 4x |  -  | [AliExpress](https://a.aliexpress.com/_EuX3DTP) 
+
+---
+
+# Software
 All control is provided with [Micro-Manager](https://micro-manager.org/) and [pymmcore-plus](https://pymmcore-plus.github.io/pymmcore-plus/) library with [napari-micromanager](https://pymmcore-plus.github.io/napari-micromanager/) GUI.
 
 __Configuration__
@@ -75,3 +86,5 @@ Component | Desctiption | Micro-manager adapter
 - | - | -
 Camera | FLIR Grasshopper3 USB3 | [Point Grey Research](https://micro-manager.org/Point_Grey_Research)
 Stage | Servo stage | [CustomArduino](https://micro-manager.org/CustomArduino) (MarzhauserLStep Z-stage)
+
+_Note: AnswerTimeout property for the servo stage was set to 5000.000_

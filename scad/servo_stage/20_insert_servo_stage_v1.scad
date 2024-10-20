@@ -11,13 +11,13 @@ d = 53.8;
 h = 5; //holder height
 IM_offset = 0.2;
 
-servo_w = 12.4;
+servo_w = 10.75;
 servo_l = 18.7;
 servo_h = 7.8;
 
 // GEAR PARAMS
-width = 3.0; // 0.01
-teeth = 25;
+width = 5.0; // 0.01
+teeth = 18;
 bore = 3.8; // 0.01
 straight = false;
 
@@ -32,8 +32,8 @@ helix_angle = 30; // 0.01
 clearance = 0.05; // 0.01
 
 /* [Rack parameters] */
-rack_length = 100; // 0.01
-rack_height = 4; // 0.01
+rack_l = 70; // 0.01
+rack_h = 2; // 0.01
 
 /* [Multi-gear configurations] */
 idler_teeth = 36;
@@ -41,11 +41,12 @@ idler_bore = 3; // 0.01
 assembled = false;
 
 // rack rail params
-rail_width = 10;
-platform_side = 20;
-sample_s = 11.85;
-sample_h = 5;
 
+platform_h = 5;
+sample_s = 11.85;
+sample_h = 10;
+
+rail_width = sample_s + 6;
 
 module CubeInsert () {
     translate([0, 0, h/2])
@@ -64,36 +65,40 @@ module CubeInsert () {
 }
 
 module RackRail () {
-    translate([0,40,0])
+    translate([0,40,platform_h/2])
     
     union() {
-        translate([-rack_length/2,-width,0])
-        cube([rack_length, rail_width, 3]);
-        
         difference() {
-        translate([rack_length/2+6,
-                   2,
-                   0])
-        cylinder(3+sample_h, d=platform_side);
+            union() {
+                translate([rail_width/4,0,0])
+                 cube([rack_l+rail_width/2,
+                       rail_width,
+                       platform_h], center=true);
         
-        translate([rack_length/2+6,
-                   2,
-                   3+sample_h/2])
-        cube([sample_s+2*IM_offset,
-              sample_s+2*IM_offset,
-              sample_h], center=true);
-        }
+                translate([rack_l/2+rail_width/2,
+                           0,
+                           0])
+                  cylinder(platform_h, d=rail_width, center=true);
+                }
         
-        translate([0,0,rack_height])
+            translate([rack_l/2+sample_s/2+1,
+                       0,
+                       sample_h/4+1.5])
+              cube([sample_s+2*IM_offset,
+                    sample_s+2*IM_offset,
+                    sample_h], center=true);
+            }
+            
+        translate([0,-(rail_width/2)+width,platform_h/2+1.1])
         rotate([90,0,0])
 
-        zahnstange(
-            modul=Module, 
-            laenge=rack_length-1.5, 
-            hoehe=rack_height, 
-            breite=width,
-            eingriffswinkel=pressure_angle,
-            schraegungswinkel=finalHelixAngle);
+          zahnstange(
+              modul=Module, 
+              laenge=rack_l-1.5, 
+              hoehe=rack_h, 
+              breite=width,
+              eingriffswinkel=pressure_angle,
+              schraegungswinkel=finalHelixAngle);
         
         }
     }
@@ -117,37 +122,48 @@ module ServoGear() {
 module ServoInsert() {
     union(){
       CubeInsert();
+        
+      // insert extension
+      translate([25,0,h/2])
+        union() {
+            cube([30,b+2*IM_offset,h], center=true);
+            
+            translate([14,0,0])
+              cylinder(h, d=b+2*IM_offset, center=true);
+            }
+            
+      // rail sides
       translate([-47/2,rail_width/2+2*IM_offset,h])
-      cube([47,2,5]);
+        cube([65,2,5]);
         
       translate([-47/2,-(rail_width/2+2*IM_offset+2),h])
-      cube([47,2,5]);
+        cube([65,2,5]);
       
+      // servo holder  
       translate([-17,
                  -(servo_w+rail_width/2+IM_offset+5),
                  h])
-//      translate([0,0,0])
-      union(){  
-        translate([0,
-                   0,
-                   0])
-        cube([18.7+2*IM_offset+3,
-              servo_w,
-              (teeth/2)-(servo_h/2)+rack_height+2*IM_offset]);
+        union(){  
+          translate([0,
+                     0,
+                     0])
+            cube([18.7+2*IM_offset+3,
+                  servo_w,
+                  (teeth/2)-(servo_h/2)+platform_h+2*IM_offset]);
         
-        translate([servo_l+2*IM_offset+3,
-                   4,
-                   0])
-        cube([3,
-              servo_w-4,
-              (teeth/2)-(servo_h/2)+rack_height+IM_offset+servo_h]);
+          translate([servo_l+2*IM_offset+3,
+                     4,
+                     0])
+            cube([3,
+                  servo_w-4,
+                  (teeth/2)-(servo_h/2)+platform_h+IM_offset+servo_h]);
           
-        translate([0,
-                   0,
-                   0])
-        cube([3,
-              servo_w,
-              (teeth/2)-(servo_h/2)+rack_height+IM_offset+servo_h]);        
+          translate([0,
+                     0,
+                     0])
+            cube([3,
+                  servo_w,
+                  (teeth/2)-(servo_h/2)+platform_h+IM_offset+servo_h]);        
         } 
       }
     }
@@ -162,9 +178,9 @@ ServoGear();
 //
 //zahnstange_und_rad (
 //    modul=Module,
-//    laenge_stange=rack_length,
+//    laenge_stange=rack_l,
 //    zahnzahl_rad=teeth,
-//    hoehe_stange=rack_height,
+//    hoehe_stange=rack_h,
 //    bohrung_rad=bore, breite=width,
 //    nabendicke=final_hub_thickness,
 //    nabendurchmesser=final_hub_diameter,

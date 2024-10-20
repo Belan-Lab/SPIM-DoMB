@@ -2,13 +2,14 @@
 
 /* [User Parameters] */
 //Lens diameter - measure the diameter of your lens carefully and insert the value in millimetres. The holder can be used for lenses with a diameter from 9 mm to 42 mm.
-lens_diameter = 29.75; //[9:0.01:42]
+lens_diameter = 37.95; //[9:0.01:42]
 //Edge thickness - measure the thickness of your lens as close to the outer edge as possible.
-lens_edge_thickness = 2; //[0.5:0.01:8]
+lens_edge_thickness = 8; //[0.5:0.01:8]
 // Which part would you like to print?
-part = "second"; // [first:Both - Holder AND Clamp,second:Holder ONLY,third:Clamp ONLY]
+part = "first"; // [first:Both - Holder AND Clamp,second:Holder ONLY,third:Clamp ONLY]
 // Write the focal length of the lens that you will put in this holder. Input: number in millimetres, no units, add '-' for a negative lens. 
-focal_length = "-75"; 
+focal_length = "~180";
+font_size = 3;
 
 /* [Hiden] */
 $fn = 80;
@@ -54,10 +55,7 @@ module lens_holder () {
             }
         }
         translate([0,-24,((h+h1-0.1)/2-2.45)]){
-            linear_extrude(height = 2) text(focal_length, size=5, font="Arial black:style=Regular",halign = "center", spacing=1);
-            translate([(lens_diameter+2.9)/2+1,a/2-1,0]){cube([3,1,2+eps], center = true);}
-            translate([-1,(a+lens_diameter+2.9)/2+1,0]){cube([1,3,2+eps], center = true);}
-            translate([1,(a+lens_diameter+2.9)/2+1,0]){cube([1,3,2+eps], center = true);}
+            linear_extrude(height = 2) text(focal_length, size=font_size, font="Arial black:style=Regular",halign = "center", spacing=1);
         }
     }
     translate([0,0,(h+h1-0.1)/2]){  //rim for the clamp
@@ -84,6 +82,5 @@ module lens_clamp() {
                 cylinder(h1+eps,d=lens_diameter-1, center = true);
                 }
             }
-        translate([(lens_diameter+4.9)/2,0,-t/2]){cylinder(t+h1,2,2,$fn=3);}
         }
     }
