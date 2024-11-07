@@ -10,15 +10,15 @@ b = 33.6;
 c = 6.28;
 d = 53.8;
 h = 5;
-IM_offset = 0.2;
+IM_offset = 0.17;
 
-1st_lens_w = 7;   // phone lens side size
-1st_lens_h = 3;
+1st_lens_w = 8.45;   // phone lens side size
+1st_lens_h = 20;
 
-2nd_lens_d = 20;  // objective lens diameter
-2nd_lens_h = 10;
+2nd_lens_d = 20.3;  // objective lens diameter
+2nd_lens_h = 30;
 
-lens_l = 30;
+lens_l = 15;
 
 
 module Insert() {
@@ -70,7 +70,7 @@ module ExpanderInsert() {
                 rotate([0,0,45])
                 cube([30,100,a], center=true);
 
-                translate([0,-33,0])
+                translate([0,-31,0])
                 rotate([0,0,45])                
                 cube([30,100,a], center=true);
             }

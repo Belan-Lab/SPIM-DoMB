@@ -6,13 +6,13 @@ a = 49.8;
 b = 33.6;
 c = 6.28;
 d = 53.8;
-h = 3; //holder height
+h = 5; //holder height
 
-hole_w = 22;
-hole_l = 20;
+hole_w = 8.45;
+hole_l = 8.45;
 
 step_w = 1;
-step_h = 1;
+step_h = 0.5;
 
 module CubeInsert () {
     translate([0,0,h/2])

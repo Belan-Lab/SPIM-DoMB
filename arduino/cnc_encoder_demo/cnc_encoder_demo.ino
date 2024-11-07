@@ -2,6 +2,7 @@
 
 #include <Encoder.h>
 #include <Pushbutton.h>
+#include "A4988.h"
 
 // stepper driver set up
 const int XstepPin = 5;    // X-axis step pin

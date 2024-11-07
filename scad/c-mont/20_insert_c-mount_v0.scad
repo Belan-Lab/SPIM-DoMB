@@ -205,4 +205,4 @@ module CmountInsert(insert_height=5, tube_height=5, thread_len=5, wall=2) {
             }
 }
 
-CmountInsert(insert_height=8, tube_height=25);
+CmountInsert(insert_height=20, tube_height=20);
