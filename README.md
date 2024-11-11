@@ -51,11 +51,15 @@ __White 10W LED cube with radiator from northbridge__
 ![](img/white_led_back.jpg)
 
 
-## 25 mm filter holder V0
-Sliding holder for standard 25 mm optical filters for fast filter change.
+## 25 mm filter holder V1
+Sliding holder for standard 25 mm optical filters. The storage box for filter holders has mounting holes for standard M6 25mm spacing optical board.
 
 __Model__
-![](img/filter_insert_v0_scad.png)
+![](img/filter_insert_v1_scad.png)
+
+Assembled filter cube             | Filter cube with filter holders and holders storage box 
+:-------------------------:|:-------------------------:
+![](img/filter_insert_v1_assembled.jpg) | ![](img/filter_insert_v1_full_set.jpg)
 
 
 ## Servo stage for light-sheet V1

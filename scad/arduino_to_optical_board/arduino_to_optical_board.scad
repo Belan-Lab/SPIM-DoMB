@@ -1,26 +1,5 @@
-/* arduino.scad
- *
- * Copyright (C) Jestin Stoffel 2012
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the Free
- * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
-// Throughout this entire model, (0,0) is the top left mounting hole (nearest  the USB port)
-
 // thickness of the PCB
-board_height = 3;
+board_height = 5;
 
 // solid_holes - specifies if mounting holes should be added to or subtracted from the model
 // combined_headers - specifies if space should be left between adjacent female headers, or if they should be rendered as a single header
@@ -46,16 +25,31 @@ module Board()
 }
 
 module ArduinoMount() {
-    union()
-		{
-         translate([-5,-5,0])
-            cube([70,65,8]);
-         translate([4.115, 53.465-2.545,6])
-			Board();
-         translate([4.115, 53.465-2.545,8])
-         scale([0.75,0.75,1])
-                Board();
-		}
+    difference() {
+        scale([1.2,1.2,2])
+            Board();
+        translate([7,-7,0])
+        scale([0.9,0.9,2])
+            Board();
+        translate([5,-5,8])
+            Board();
+        
+        translate([52,-3.5,2])
+            cylinder(d = 10.25,h = 20);
+        translate([52,-3.5,0])
+            cylinder(d = 6,h = 20);
+        translate([2,-3.5,2])
+            cylinder(d = 10.25,h = 20);
+        translate([2,-3.5,0])
+            cylinder(d = 6,h = 20);
+        
+        translate([-10,-50.5,4])
+            cube([40,40,10]);
+        translate([5.5,-70,4])
+            cube([45,40,10]);
+        translate([41,-50.5,4])
+            cube([45,32,10]);
+    }
 }
 
 ArduinoMount();
