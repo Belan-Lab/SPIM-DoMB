@@ -2,13 +2,13 @@
 
 /* [User Parameters] */
 //Lens diameter - measure the diameter of your lens carefully and insert the value in millimetres. The holder can be used for lenses with a diameter from 9 mm to 42 mm.
-lens_diameter = 37.95; //[9:0.01:42]
+lens_diameter = 40; //[9:0.01:42]
 //Edge thickness - measure the thickness of your lens as close to the outer edge as possible.
-lens_edge_thickness = 8; //[0.5:0.01:8]
+lens_edge_thickness = 3; //[0.5:0.01:8]
 // Which part would you like to print?
 part = "first"; // [first:Both - Holder AND Clamp,second:Holder ONLY,third:Clamp ONLY]
 // Write the focal length of the lens that you will put in this holder. Input: number in millimetres, no units, add '-' for a negative lens. 
-focal_length = "~180";
+focal_length = "100";
 font_size = 3;
 
 /* [Hiden] */

@@ -1,0 +1,29 @@
+# Recommended information
+Authors:
+    - Richard Bowman
+    - Ed Meng
+    - Julian Stirling
+
+Affiliation: Bath Open Instrumentation Group
+
+License: CERN-OHL-S-2.0
+
+Email: r.w.bowman@bath.ac.uk
+
+
+#Uncomment below to add custom categories
+CustomCategories:
+    PrintedTool:
+        Reuse: True
+        DisplayName: Printed Tools
+    3DPrinted:
+        Reuse: False
+        DisplayName: 3D printed part
+
+WebsiteRoot: '/openflexure-block-stage/'
+
+#Uncomment below to disable fussy warnings
+#Fussy: False
+
+
+
