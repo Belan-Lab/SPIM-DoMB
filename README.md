@@ -1,17 +1,20 @@
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
+
 <p align="left">
 <a href="#logo" name="logo"><img src="https://raw.githubusercontent.com/bionanoimaging/UC2-GIT/master/IMAGES/UC2_logo_text.png" width="400"></a>
 </p>
-[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
+[![OpenFlexure Project](img/openflexure_logo_project.png)](https://gitlab.com/openflexure)
 
-# openUC2 solutions for DoMB
 
-Fork of [openUC2 Project](https://github.com/openUC2/UC2-GIT?tab=readme-ov-file)
+# SPIM for DoMB 
+
+Fork of [openUC2 Project](https://github.com/openUC2/UC2-GIT?tab=readme-ov-file) and [OpenFlexure Block Stage](https://gitlab.com/openflexure/openflexure-block-stage/)/
 
 This repo will contain hardware solutions and adaptations of original openUC2 parts/projects for our experimental work in the Department of Molecular Biophysics at Bogomoletz Institute of Physiology (Kyiv, Ukraine).
 
 ---
 
-# Hardware
+# Cubes and modules
 ## C-mount adapter
 Parametric model of a cube insert with C-mount thread (_c-mount_insert_v0.scad_).
 
@@ -66,7 +69,7 @@ Assembled filter cube             | Filter cube with filter holders and holders 
 The holder was adapted to install a plastic photometric cuvette for sample mounting.
 
 __Model__
-![](img/servo_stage_v1_scad.png)
+![](img/servo_stage_v1_scad.png) openflexure_logo_project.png
 _Inclides openSCAD library "Bibliothek für Evolventen-Zahnräder, Schnecken und Zahnstangen" (gear.scad)_
 
 __Assembled cube__
@@ -136,14 +139,11 @@ For arduino operating details see [Step-by-step to controlling multiple light so
 All control is provided with [Micro-Manager](https://micro-manager.org/) and [pymmcore-plus](https://pymmcore-plus.github.io/pymmcore-plus/) library with [napari-micromanager](https://pymmcore-plus.github.io/napari-micromanager/) GUI.
 
 __Configuration__
-
-Component | Desctiption | Micro-manager adapter
-- | - | -
-Camera | FLIR Grasshopper3 USB3 | [Point Grey Research](https://micro-manager.org/Point_Grey_Research)
-Stage | Servo stage | [CustomArduino](https://micro-manager.org/CustomArduino) (MarzhauserLStep Z-stage)
-Laser | RGB laser control wtih TTL | [Arduino](https://micro-manager.org/Arduino)
-
-_Note: AnswerTimeout property for the servo stage was set to 5000.000_
+|Component | Desctiption | Micro-manager adapter| Note |
+|- | - | - | - |
+|Camera | FLIR Grasshopper3 USB3 | [Point Grey Research](https://micro-manager.org/Point_Grey_Research)| |
+|Stage | Servo stage | [CustomArduino](https://micro-manager.org/CustomArduino) (MarzhauserLStep Z-stage)| Set AnswerTimeout to 5000.000 |
+|Laser | RGB laser control wtih TTL | [Arduino](https://micro-manager.org/Arduino)| Change MM Ardu version in sketch to 2 |
 
 ---
 
