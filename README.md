@@ -24,13 +24,13 @@ Department of Molecular Biophysics, Bogomoletz Institute of Physiology of NAS of
 <img src="img/overall_schematic.png" width="750"></a>
 </p>
 
-The microscope consists of three main parts: (__1__) excitation light path with a light source and light sheet collimation system, (__2__) sample handling part which includes a sample chamber with modified OpenFlexure Block Stage and side illumination system, and (__3__) detection light path with emission filter, tube lens, and industrial-grade CMOS camera ([FLIR Grasshopper 3](https://www.edmundoptics.com/p/gs3-u3-23s6m-c-112-grasshopper-usb-30-monochrome-camera/30859/?srsltid=AfmBOor05Spkup9nlj1Yhpo8lcCk5ABTsBXECeMxt9GTolSTdF2UEIqc) in our case). A solid yellow line indicates the excitation and detection light path, and a dashed yellow line indicates the brightfield side-illumination light path. 
+The microscope consists of three main parts: (__1__) excitation light path with a light source, light source control board, and light sheet collimation system, (__2__) sample handling part which includes a sample chamber with modified OpenFlexure Block Stage and side illumination system, and (__3__) detection light path with emission filter, tube lens, and industrial-grade CMOS camera ([FLIR Grasshopper 3](https://www.edmundoptics.com/p/gs3-u3-23s6m-c-112-grasshopper-usb-30-monochrome-camera/30859/?srsltid=AfmBOor05Spkup9nlj1Yhpo8lcCk5ABTsBXECeMxt9GTolSTdF2UEIqc) in our case). A solid yellow line indicates the excitation and detection light path, and a dashed yellow line indicates the brightfield side-illumination light path. 
 
 The whole setup is based on on-shelf parts and low-cost solutions with minimal additional modifications. For all 3D-printed parts, parametric openSCAD models were provided for flexible modification customization without a great entry threshold.  
 
 This system is under strong development, so check for future updates.
 
-__3D reconstruction of whole-mount staining of vessels endothelial cells in the sciatic nerve__
+__3D reconstruction of whole mount staining of vessels endothelial cells in the sciatic nerve__
 
 ![](img/Projections_04.gif)
 
@@ -41,18 +41,88 @@ __3D reconstruction of whole-mount staining of vessels endothelial cells in the 
 > - [Selective Plane Illumination Microscopy](https://link.springer.com/chapter/10.1007/978-0-387-45524-2_37)
 > - [openSPIM project](https://openspim.org/)
 > - [Selective plane illumination microscopy techniques in developmental biology](https://journals.biologists.com/dev/article/136/12/1963/65234/Selective-plane-illumination-microscopy-techniques)
-> - [Using tissue clearing and light sheet fluorescence microscopy for the three-dimensional analysis of sensory and sympathetic nerve endings that innervate bone and dental tissue of mice](https://login.research4life.org/tacsgr1onlinelibrary_wiley_com/doi/full/10.1002/cne.25582)
+> - [Using tissue clearing and light sheet fluorescence microscopy for the three-dimensional analysis of sensory and sympathetic nerve endings that innervate bone and dental tissue of mice](https://onlinelibrary.wiley.com/doi/full/10.1002/cne.25582)
 
 ---
 
 # Construction notes
-The microscope was built on a 30x50 cm M6 threads optical breadboard.
+General materials and parts needed for printing and assembling:
+
+| Part                               | #     | Cost/unit | Link                                                         |
+| ---------------------------------- | ----- | --------- | ------------------------------------------------------------ |
+| Optical breadboard 30x45 cm        | 1x    | $135      | [AliExpress](https://a.aliexpress.com/_EwQ40qd)              |
+| M3x12 DIN912 screw                 | ~200x | ~$8 / 200 | Metalvis                                                     |
+| M6x12 DIN912 screw                 | ~30x  | ~$6 / 30  | Metalvis                                                     |
+| M6x12 DIN912 screw                 | ~10x  | ~$1 / 10  | Metalvis                                                     |
+| M5x8 DIN914 screw                  | ~150x | ~$5 / 150 | Metalvis                                                     |
+| 1.75 mm PLA filament (750 g/pack)  | 2x    | $11       | [Monofilament](https://monofilament.com.ua/ua/products/standartnye-materialy/pla/pla-cvetlo-seryj-o1-75mm-ves0-75kg) |
+| 1.75 mm ABS+ filament (750 g/pack) | 1.5x  | $10.85    | [Monofilament](https://monofilament.com.ua/ua/products/standartnye-materialy/abs-plus/abs-plus-oranzhevyj) |
+| __Total__                          |       | __~$200__ |                                                              |
 
 ## 1. Excitation light path
 
+<p align="center">
+<img src="img/x_lightpath.png" width="500"></a>
+</p>
+
+1. [RGB lasers module and lasers trigger board](#rgb-laser-module-v0)
+2. ~12x beam expander: iPhone 4S lens F3.85 and F50 lens
+3. Cylinrical lens F30
+4. 45° kinematic mirror
+5. Focusing lens F50
+6. Projection objective 10x NA 0.25
+
+| Part                                      | #    | Cost/unit | Link                                            |
+| ----------------------------------------- | ---- | --------- | ----------------------------------------------- |
+| [RGB lasers module](#rgb-laser-module-v0) | 1x   | $23       |                                                 |
+| iPhone 4S lens F3.85                      | 1x   | -         |                                                 |
+| F50 D30 lens                              | 2x   | $0.68     | [AliExpress](https://a.aliexpress.com/_ExOjTDP) |
+| F30 20x22 mm cylindrical lens             | 1x   | $10.54    | [AliExpress](https://a.aliexpress.com/_EuDzlJ3) |
+| Fron surface mirror 30x30 mm              | 1x   | $1.46     | [AliExpress](https://a.aliexpress.com/_EHn0u2l) |
+| 10x NA 0.25 infinity corrected objective  | 1x   | $15.54    | [AliExpress](https://a.aliexpress.com/_ExDrPj7) |
+| __Total__                                 |      | __~$52__  |                                                 |
+
 ## 2. Sample handling
 
+<p align="center">
+<img src="img/sample.png" width="500"></a>
+</p>
+
+1. [White LED 3.3V 10W](#led-and-power-cube-v0) and 45° kinematic mirror
+2. [OpenFlexure Block Stage with sample holder](#openflexure-block-stage-and-sample-holder)
+3. [Sample chamber](#sample-chamber-v0)
+
+| Part                                         | #    | Cost/unit | Link                                            |
+| -------------------------------------------- | ---- | --------- | ----------------------------------------------- |
+| [LED and power cube](#led-and-power-cube-v0) | 1x   | $12.68    |                                                 |
+| Fron surface mirror 30x30 mm                 | 1x   | $1.46     | [AliExpress](https://a.aliexpress.com/_EHn0u2l) |
+| __Total__                                    |      | __~$14__  |                                                 |
+
+
 ## 3. Detection light path
+
+<p align="center">
+<img src="img/m_lightpath.png" width="500"></a>
+</p>
+
+1. Objective 4x NA 0.1
+2. [Emission filter holder](#25-mm-filter-holder-v1)
+3. Tube lens ~F180
+4. Light protection enclosure
+5. CMOS camera and [C-mount cube](#c-mount-adapter)
+
+| Part                                   | #    | Cost/unit                                  | Link                                                         |
+| -------------------------------------- | ---- | ------------------------------------------ | ------------------------------------------------------------ |
+| 4x NA 0.1 infinity corrected objective | 1x   | $13.25                                     | [AliExpress](https://a.aliexpress.com/_ExDrPj7)              |
+| 25 mm emission filter                  | 1x   | discontinued old filter set, but new >$300 |                                                              |
+| F~180 D40 lens                         | 1x   | from old stereomicroscope                  |                                                              |
+| FLIR Grasshopper 3                     | 1x   | $1179                                      | [Edmund Optics](https://www.edmundoptics.com/p/gs3-u3-23s6m-c-112-grasshopper-usb-30-monochrome-camera/30859/?srsltid=AfmBOor05Spkup9nlj1Yhpo8lcCk5ABTsBXECeMxt9GTolSTdF2UEIqc) |
+| __Total__                              |      | __~$1195__                                 |                                                              |
+
+> [!IMPORTANT]
+>
+> The cost of the entire microscope, excluding the CMOS camera and emission filters set, was less than $300. A possible alternative for expensive emission filters may be industrial-grade filters for multimedia projector systems, but with a minimal selection of possible passbands. I also recommend paying attention to other manufacturers of industrial monochrome cameras: [Allied Vision](https://www.alliedvision.com/en/products/camera-series/alvium-1800-u/), [Basler](https://www.baslerweb.com/en/cameras/?srsltid=AfmBOooR76UWs6U6YJbZBzX9LeqmtPnLls9piX8MenW-n_NOVcxJU0dT), [Daheng](https://en.daheng-imaging.com/list-2-1.html).
+
 
 
 ---
@@ -74,8 +144,14 @@ I am listing the changed parameters below, travel distances for the final versio
 
 Good practice for sample fixation during SPIM imaging is embedding the sample in agarose gel. 1 ml syringes are very suitable for large samples, so I designed a "lego figure hand"-like holder for a standard 1 ml insulin syringe. 
 
+> [!TIP]
+>
+> Read about [sample preparation for SPIM](https://openspim.org/Sample_Preparation).
 
- Sample holder model V0 | Block Stage top view   | Block stage side view 
+
+
+
+ Sample holder model V0 | Block Stage top view   | Block Stage side view 
 :-------------------------:|:-------------------------:|:-------------------------:
 <img src="img/00_of_sample_holder_v0_scad.png" width="3000">|![](img/of_bs_top.jpg) | ![](img/of_bs_side.jpg)
 
@@ -88,7 +164,7 @@ __Printed long insert__ | ![](img/c-mount_photo.jpg)
 __Installed insert__| ![](img/c-mount_in_cube.jpg)
 
 
-##  LED/power cube V0
+##  LED and power cube V0
 Parametric model of a cube insert with two LED dimmers and 12V output with type-C Power Delivery input (_led_power_insert_v0.scad_).
 
 __Model__
@@ -101,9 +177,11 @@ Part|#|Cost/unit|Link
 LED dimmer | 2x | $2.72   | [AliExpress](https://a.aliexpress.com/_EuX3DTP) 
 PD decoy module 12V | 1x | $0.44   | [AliExpress](https://a.aliexpress.com/_Ezeg4Hf) 
 Mini560 Pro Step Down to 3.3V| 1x | $0.81  | [AliExpress](https://a.aliexpress.com/_EJQFP5x) 
-White LED 10W 3V (XML2) | 1x | $1.29  | [AliExpress](https://a.aliexpress.com/_EHBMyXT) 
-460 nm LED 3W 3V (10 pc) | 1x | $1.94   | [AliExpress](https://a.aliexpress.com/_EI94HWN)
+White LED 10W 3.3V (XML2) | 1x | $1.29  | [AliExpress](https://a.aliexpress.com/_EHBMyXT) 
+460 nm LED 3W 3.3V | 1x | $0.2 | [AliExpress](https://a.aliexpress.com/_EI94HWN)
+Acrilic LED lens, F22 D20.8 | 2x | $1.35 | [AliExpress](https://a.aliexpress.com/_EHJOUo1) 
 XT30 connector | 3x | $0.6  | [arduino.ua](https://arduino.ua/prod5276-xt30-konnektor-para-dlya-podklucheniya-li-po-li-ion-akkymylyatorov)
+__Total__ |  | __$12.68__ | 
 
 Assembled power cube            | ![](img/power_cube_close_up.jpg)
 :-------------------------:|:-------------------------:
@@ -129,6 +207,13 @@ Assembled filter cube             | Filter cube with filter holders and holders 
 :-------------------------:|:-------------------------:
 ![](img/filter_insert_v1_assembled.jpg) | ![](img/filter_insert_v1_full_set.jpg)
 
+
+## Sample chamber V0
+Sample chamber with three glass walls, as chamber windows was used 18 mm diameter 0.18 mm thickness coverslips mounted on silicone sealant.
+
+Model           |  Assembled chamber
+:-------------------------:|:-------------------------:
+![](img/sample_chamber_scad.png) | ![](img/sample_chamber.jpg)
 
 ## Servo stage V1
 The holder was adapted to install a plastic photometric cuvette for sample mounting.
@@ -156,7 +241,7 @@ Part|#|Cost/unit|Link
 Acrilic LED lens, F22 D20.8 | 1x | $1.35 | [AliExpress](https://a.aliexpress.com/_EHJOUo1) 
 iPhone 4S lens, F3.85 | 1x |  -  |  
 
-## RGB laser module V0
+## RGB lasers module V0
 
 Module for mounting and control with Arduino of the RGB laser LED module.
 
@@ -166,6 +251,7 @@ RGB laser module | 1x | $19.5 | [AliExpress](https://a.aliexpress.com/_EHowiiN)
 Arduino Nano type-C | 1x | $2.13 | [AliExpress](https://a.aliexpress.com/_EwrjzyD) 
 Arduino Nano expansion board | 1x | $0.94 | [AliExpress](https://a.aliexpress.com/_EyNqegd) 
 PD decoy module 12V | 1x | $0.44 | [AliExpress](https://a.aliexpress.com/_Ezeg4Hf) 
+__Total__ |  | __$23__ |  
 
 __RGB laser trigger board modification__
 
