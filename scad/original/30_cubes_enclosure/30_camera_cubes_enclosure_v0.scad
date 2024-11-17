@@ -9,8 +9,10 @@ enc_l = 180;
 
 wall_t = 1.5;
 
-camera_d = 28;
+camera_d = 30;
 camera_shift = 8;
+
+p_h = 9;
 
 
 module EmEnclosure() {
@@ -32,6 +34,11 @@ module EmEnclosure() {
                 cube([camera_d+2*FDM_offset,
                       40,
                       enc_h/2+camera_shift+2*FDM_offset],
+                     center = true);
+            translate([0,enc_l/2,-enc_h/2+(p_h+FDM_offset-wall_t)/2])
+                cube([enc_w+2*FDM_offset,
+                      40,
+                      p_h+FDM_offset],
                      center = true);
         }
     }

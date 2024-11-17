@@ -136,6 +136,7 @@ For arduino operating details see [Step-by-step to controlling multiple light so
 All control is provided with [Micro-Manager](https://micro-manager.org/) and [pymmcore-plus](https://pymmcore-plus.github.io/pymmcore-plus/) library with [napari-micromanager](https://pymmcore-plus.github.io/napari-micromanager/) GUI.
 
 __Configuration__
+
 Component | Desctiption | Micro-manager adapter
 - | - | -
 Camera | FLIR Grasshopper3 USB3 | [Point Grey Research](https://micro-manager.org/Point_Grey_Research)
