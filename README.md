@@ -20,6 +20,7 @@ Department of Molecular Biophysics, Bogomoletz Institute of Physiology of NAS of
 
 # System overview
 
+## Microscope configuration
 <p align="center">
 <img src="img/overall_schematic.png" width="750"></a>
 </p>
@@ -30,7 +31,16 @@ The whole setup is based on on-shelf parts and low-cost solutions with minimal a
 
 This system is under strong development, so check for future updates.
 
-__3D reconstruction of whole mount staining of vessels endothelial cells in the sciatic nerve__
+## First results
+
+__Light sheet configuration__
+ Light sheet top view | Light sheet side view | Light sheet focus point view 
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="img/ls_top.jpg" width="500">|<img src="img/ls_side.jpg" width="500">| <img src="img/ls_ortho.jpg" width="500"> 
+
+__Z-stack and reconstruction of whole mount staining of vessels endothelial cells in the sciatic nerve__
+
+![](img/Montage_representative.png)
 
 ![](img/Projections_04.gif)
 
