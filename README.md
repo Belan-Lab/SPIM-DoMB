@@ -27,7 +27,7 @@ Department of Molecular Biophysics, Bogomoletz Institute of Physiology of NAS of
 
 The microscope consists of three main parts: (__1__) excitation light path with a light source, light source control board, and light sheet collimation system, (__2__) sample handling part which includes a sample chamber with modified OpenFlexure Block Stage and side illumination system, and (__3__) detection light path with emission filter, tube lens, and industrial-grade CMOS camera ([FLIR Grasshopper 3](https://www.edmundoptics.com/p/gs3-u3-23s6m-c-112-grasshopper-usb-30-monochrome-camera/30859/?srsltid=AfmBOor05Spkup9nlj1Yhpo8lcCk5ABTsBXECeMxt9GTolSTdF2UEIqc) in our case). A solid yellow line indicates the excitation and detection light path, and a dashed yellow line indicates the brightfield side-illumination light path. 
 
-The whole setup is based on on-shelf parts and low-cost solutions with minimal additional modifications. For all 3D-printed parts, parametric openSCAD models were provided for flexible modification customization without a great entry threshold.  
+The whole setup is based on on-shelf parts and low-cost solutions with minimal additional modifications. For all 3D-printed parts, parametric openSCAD models were provided for flexible modification and customization without a great entry threshold.  
 
 This system is under strong development, so check for future updates.
 
