@@ -138,32 +138,12 @@ General materials and parts needed for printing and assembling:
 ---
 
 # Cubes and modules
-## OpenFlexure Block Stage and sample holder
+## OpenFlexure Block Stage for SPIM
 
-The original OpenFlexure Block stage has only ~2 mm travel distances in each direction, which is not enough for large sample imaging. So, due to the parametric nature of the OpenFlexure Block Stage model, I just adjusted several variables in the `parameters.scad` file to obtain an STL model of the stage with enlarged travel distances.  Additionally, I established a new variable `platform_z_add` which was just a constant in `platform_z` calculation (line 80) to control base high.
+Active development of OpenFlexure Block Stage adaptation continues on a separate [repository](https://github.com/Belan-Lab/OpenFlexure-XYZR).
 
-I am listing the changed parameters below, travel distances for the final version are ~6 mm across the XY axes and ~3 mm across the Z axis:
-
-| Variable               | Original value | Adjusted value |
-| ---------------------- | -------------- | -------------- |
-| `beam_height`          | 75             | 100            |
-| `stage_to_beam_height` | 12.5           | 0              |
-| `xy_lever`             | 10             | 30             |
-| `flex_a`               | 0.1            | 0.2            |
-| `platform_z_add`       | 7              | 20             |
-
-Good practice for sample fixation during SPIM imaging is embedding the sample in agarose gel. 1 ml syringes are very suitable for large samples, so I designed a "lego figure hand"-like holder for a standard 1 ml insulin syringe. 
-
-> [!TIP]
->
-> Read about [sample preparation for SPIM](https://openspim.org/Sample_Preparation).
-
-
-
-
- Sample holder model V0 | Block Stage top view   | Block Stage side view 
-:-------------------------:|:-------------------------:|:-------------------------:
-<img src="img/00_of_sample_holder_v0_scad.png" width="3000">|![](img/of_bs_top.jpg) | ![](img/of_bs_side.jpg)
+__Block Stage side view__
+![](img/of_bs_side.jpg)
 
 ## C-mount adapter
 Parametric model of a cube insert with C-mount thread (_c-mount_insert_v0.scad_).
