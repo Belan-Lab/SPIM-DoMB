@@ -18,7 +18,7 @@ Department of Molecular Biophysics, Bogomoletz Institute of Physiology of NAS of
 
 ---
 
-# System overview
+# L-SPIM system overview
 
 ## Microscope configuration
 <p align="center">
@@ -53,9 +53,8 @@ __Z-stack and reconstruction of whole mount staining of vessels endothelial cell
 > - [Selective plane illumination microscopy techniques in developmental biology](https://journals.biologists.com/dev/article/136/12/1963/65234/Selective-plane-illumination-microscopy-techniques)
 > - [Using tissue clearing and light sheet fluorescence microscopy for the three-dimensional analysis of sensory and sympathetic nerve endings that innervate bone and dental tissue of mice](https://onlinelibrary.wiley.com/doi/full/10.1002/cne.25582)
 
----
 
-# Construction notes
+## Construction notes
 General materials and parts needed for printing and assembling:
 
 | Part                               | #     | Cost/unit | Link                                                         |
@@ -134,6 +133,45 @@ General materials and parts needed for printing and assembling:
 > The cost of the entire microscope, excluding the CMOS camera and emission filters set, was less than $300. A possible alternative for expensive emission filters may be industrial-grade filters for multimedia projector systems, but with a minimal selection of possible passbands. I also recommend paying attention to other manufacturers of industrial monochrome cameras: [Allied Vision](https://www.alliedvision.com/en/products/camera-series/alvium-1800-u/), [Basler](https://www.baslerweb.com/en/cameras/?srsltid=AfmBOooR76UWs6U6YJbZBzX9LeqmtPnLls9piX8MenW-n_NOVcxJU0dT), [Daheng](https://en.daheng-imaging.com/list-2-1.html).
 
 
+---
+
+# Theoretical notes
+## Samples and desired characteristics
+
+Sciatic nerve samples dimentions:
+- Nerve diameter: 1.5-2 mm
+- Nerve length: 5-20 mm
+- A-fiber diameter: 1.5 - 10 um 
+- C-fiber diameter: 0.5 - 2 um
+- Minimal vessel diameter
+
+__NB: is10x 0.3 enough?__
+
+
+## Litgh-seet parameters
+_According Power and  Huisken, 2017_
+
+Light-sheet length:
+$$
+z_0 = \frac{2 \cdot \lambda_{ex.}}{\pi \cdot NA^{2}_{ex.}}
+$$
+
+Light-sheet thickness: 
+$$
+\omega_0 = \frac{2 \cdot \lambda_{ex.}}{\pi \cdot NA_{ex.}}
+$$
+
+## Design notes
+_According Power and  Huisken, 2017_
+
+## Useful links
+- [Light-sheet microscopy: a tutorial](https://opg.optica.org/aop/fulltext.cfm?uri=aop-10-1-111&id=381035)
+- [A guide to light-sheet fluorescence microscopy for multiscale imaging](https://www.nature.com/articles/nmeth.4224)
+
+---
+
+# T-SPIM 
+Here will be construction notes for the next project, T-SPIM extension of DoMB-SPIM.
 
 ---
 
@@ -293,9 +331,7 @@ __Configuration__
 |Stage | Servo stage | [CustomArduino](https://micro-manager.org/CustomArduino) (MarzhauserLStep Z-stage)| Set AnswerTimeout to 5000.000 |
 |Lasers | RGB laser control wtih TTL | [Arduino](https://micro-manager.org/Arduino)| Change MM Ardu version in sketch to 2 |
 
----
-
-# Useful links
+## Useful links
 
 - [Grasshopper3 USB 3.1 manual, PDF](https://www.physics.utoronto.ca/apl/fvf/GS3-U3-Technical-Reference.pdf)
 - [Step-by-step to controlling multiple light sources with an Arduino for sequenceable MDA by Guillaume Witz & Thomas Julou](https://github.com/nimwegenLab/MiM_NikonTi/blob/master/Docs/NikonTi_hardware_triggering.m)
