@@ -77,7 +77,6 @@ void loop() {
     zMove();
   }
 
-
   Serial.print("X: ");
   Serial.print(xPos);
   Serial.print(" | Y: ");
@@ -146,12 +145,11 @@ void zMove() {
 
 
 void bState() {
-  int bStt = digitalRead(J_CLICK); // Читаємо стан кнопки
+  int bStt = digitalRead(J_CLICK);
 
-  // Якщо кнопка змінює стан з відпущеного на натиснутий
   if (bStt == LOW && bSttLast == HIGH) {
     bPress = !bPress;
   }
 
-  bSttLast = bStt; // Оновлюємо стан кнопки
+  bSttLast = bStt;
 }
