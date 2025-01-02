@@ -53,7 +53,7 @@ module LaserInsert() {
         union() {
             DoubleInsert();
             translate([0,cube_side/2-wall_th/2,cube_win_side/2])
-                cube([83.8-2*FDM_offset,wall_th,cube_win_side-2*FDM_offset], center=true);
+                cube([83.8-2*FDM_offset,wall_th,cube_win_side-5*FDM_offset], center=true);
         }
         
         // front mounting holes

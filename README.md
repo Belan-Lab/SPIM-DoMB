@@ -181,7 +181,9 @@ Here will be construction notes for the next project, T-SPIM extension of DoMB-S
 Active development of OpenFlexure Block Stage adaptation continues on a separate [repository](https://github.com/Belan-Lab/OpenFlexure-XYZR).
 
 __Block Stage side view__
-![](img/of_bs_side.jpg)
+<p align="center">
+<img src="img/of_bs_side.jpg" width="500"></a>
+</p>
 
 ## C-mount adapter
 Parametric model of a cube insert with C-mount thread (_c-mount_insert_v0.scad_).
@@ -276,7 +278,7 @@ Module for mounting and control with Arduino of the RGB laser LED module.
 Part|#|Cost/unit|Link
 -|-|-|-
 RGB laser module | 1x | $19.5 | [AliExpress](https://a.aliexpress.com/_EHowiiN)
-Arduino Nano type-C | 1x | $2.13 | [AliExpress](https://a.aliexpress.com/_EwrjzyD) 
+Arduino Nano compatible board | 1x | $2.13 | [AliExpress](https://a.aliexpress.com/_EwrjzyD) 
 Arduino Nano expansion board | 1x | $0.94 | [AliExpress](https://a.aliexpress.com/_EyNqegd) 
 PD decoy module 12V | 1x | $0.44 | [AliExpress](https://a.aliexpress.com/_Ezeg4Hf) 
 __Total__ |  | __$23__ |  
