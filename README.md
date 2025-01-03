@@ -151,15 +151,17 @@ __NB: is10x 0.3 enough?__
 ## Litgh-seet parameters
 _According Power and  Huisken, 2017_
 
-Light-sheet length:\
-$$
-z_0 = \frac{2 \cdot \lambda_{ex.}}{\pi \cdot NA^{2}_{ex.}}
-$$
+Light-sheet length:
 
-Light-sheet thickness: \
-$$
+```math
+z_0 = \frac{2 \cdot \lambda_{ex.}}{\pi \cdot NA^{2}_{ex.}}
+```
+
+Light-sheet thickness: 
+
+```math
 \omega_0 = \frac{2 \cdot \lambda_{ex.}}{\pi \cdot NA_{ex.}}
-$$
+```
 
 ## Design notes
 _According Power and  Huisken, 2017_
