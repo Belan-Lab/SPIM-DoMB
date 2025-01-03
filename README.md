@@ -136,39 +136,69 @@ General materials and parts needed for printing and assembling:
 ---
 
 # Theoretical notes
-## Samples and desired characteristics
+## Gaussian litgh-sheet
+_Based on [Olarte et al., 2018](https://opg.optica.org/aop/fulltext.cfm?uri=aop-10-1-111&id=381035) and [Power and  Huisken, 2017](https://whttps://opg.optica.org/aop/fulltext.cfm?uri=aop-10-1-111&id=381035ww.nature.com/articles/nmeth.4224)._
 
-Sciatic nerve samples dimentions:
+__Schematic of the illumination and detection arm in a SPIM__ (_Olarte et al., 2018_)
+<p align="center">
+<img src="img/ls_geom_olarte2017.jpeg" width="700"></a>
+</p>
+
+### Illumination arm
+Light-sheet thickness (axial sectioning resolution): 
+
+```math
+l_z = 2w_0 = 2 \frac{n \cdot \lambda_{ex.}}{\pi \cdot NA_{ex.}}
+```
+
+Light-sheet length (field of view/FOV):
+
+```math
+l_x = 2z_r = 2 \frac{\pi \cdot w_0^2}{\lambda_{ex.}} = 2 \frac{n^2 \cdot \lambda_{ex.}}{\pi \cdot NA_{ex.}^2}
+```
+
+
+
+### Detection arm
+Lateral resolution (Rayleigh criterion):
+
+```math
+d_{xy} = \frac{0.61 \cdot \lambda_{det.}}{NA_{det.}}
+```
+
+Axial resolution (depth of field/DOF):
+
+```math
+d_z = \frac{n \cdot \lambda_{det.}}{NA_{det.}^2}
+```
+
+
+## Samples and desired characteristics
+### Sciatic nerve
 - Nerve diameter: 1.5-2 mm
 - Nerve length: 5-20 mm
 - A-fiber diameter: 1.5 - 10 um 
 - C-fiber diameter: 0.5 - 2 um
 - Minimal vessel diameter
 
-__NB: is10x 0.3 enough?__
+__NB: is 10x NA 0.3 FN 22 enough?__
+
+## Relation of components and parameters
+### Objective
+
+| Model                           | Olympus UPlanFl Ph. 1 |
+| ------------------------------- | --------------------- |
+| Magnification (M)               | 10x                   |
+| Numerical aperture (NA)         | 0.3                   |
+| Working distance (WD)           | 10 mm                 |
+| Focal distance (F)              | 18 mm                 |
+| Back focal plane distance (BFP) | -19.1 mm              |
+| Field number (FN)               | 26.5 mm               |
+| Lateral resolution              | 1.12 um               |
+| Parafocal distance (PD)         | 65 mm                 |
+| Exit pupil diameter (EP)        | 10.8 mm               |
 
 
-## Litgh-seet parameters
-_According Power and  Huisken, 2017_
-
-Light-sheet length:
-
-```math
-z_0 = \frac{2 \cdot \lambda_{ex.}}{\pi \cdot NA^{2}_{ex.}}
-```
-
-Light-sheet thickness: 
-
-```math
-\omega_0 = \frac{2 \cdot \lambda_{ex.}}{\pi \cdot NA_{ex.}}
-```
-
-## Design notes
-_According Power and  Huisken, 2017_
-
-## Useful links
-- [Light-sheet microscopy: a tutorial](https://opg.optica.org/aop/fulltext.cfm?uri=aop-10-1-111&id=381035)
-- [A guide to light-sheet fluorescence microscopy for multiscale imaging](https://www.nature.com/articles/nmeth.4224)
 
 ---
 
