@@ -106,6 +106,14 @@ _In progress_
 # T-SPIM 
 Here will be construction notes for the next project, T-SPIM extension of DoMB-SPIM.
 
+## Design overview
+
+| Top layer        | ![](img/T-SPIM_design_v0_top.png)    |
+| ---------------- | ------------------------------------ |
+| __Bottom layer__ | ![](img/T-SPIM_design_v0_bottom.png) |
+
+
+
 ---
 
 # L-SPIM system overview
