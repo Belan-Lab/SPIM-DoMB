@@ -19,6 +19,15 @@ Department of Molecular Biophysics, Bogomoletz Institute of Physiology of NAS of
 ---
 
 # Design notes
+
+> [!TIP]
+> Read more about the SPIM principles: 
+>
+> - [Selective Plane Illumination Microscopy](https://link.springer.com/chapter/10.1007/978-0-387-45524-2_37)
+> - [openSPIM project](https://openspim.org/)
+> - [Selective plane illumination microscopy techniques in developmental biology](https://journals.biologists.com/dev/article/136/12/1963/65234/Selective-plane-illumination-microscopy-techniques)
+> - [Using tissue clearing and light sheet fluorescence microscopy for the three-dimensional analysis of sensory and sympathetic nerve endings that innervate bone and dental tissue of mice](https://onlinelibrary.wiley.com/doi/full/10.1002/cne.25582)
+
 ## Gaussian litgh-sheet
 _Based on [Olarte et al., 2018](https://opg.optica.org/aop/fulltext.cfm?uri=aop-10-1-111&id=381035) and [Power and  Huisken, 2017](https://whttps://opg.optica.org/aop/fulltext.cfm?uri=aop-10-1-111&id=381035ww.nature.com/articles/nmeth.4224)._
 
@@ -106,17 +115,17 @@ _In progress_
 # T-SPIM 
 Here will be construction notes for the next project, T-SPIM extension of DoMB-SPIM.
 
-## Design overview
+## Design overview, V0
 
 | Top layer        | ![](img/T-SPIM_design_v0_top.png)    |
-| ---------------- | ------------------------------------ |
+| :--------------: | :----------------------------------: |
 | __Bottom layer__ | ![](img/T-SPIM_design_v0_bottom.png) |
 
 
 
 ---
 
-# L-SPIM system overview
+# L-SPIM
 
 ## Microscope configuration
 <p align="center">
@@ -141,15 +150,6 @@ __Z-stack and reconstruction of whole mount staining of vessels endothelial cell
 ![](img/Montage_representative.png)
 
 ![](img/Projections_04.gif)
-
-> [!TIP]
->
-> Read more about the SPIM principles: 
->
-> - [Selective Plane Illumination Microscopy](https://link.springer.com/chapter/10.1007/978-0-387-45524-2_37)
-> - [openSPIM project](https://openspim.org/)
-> - [Selective plane illumination microscopy techniques in developmental biology](https://journals.biologists.com/dev/article/136/12/1963/65234/Selective-plane-illumination-microscopy-techniques)
-> - [Using tissue clearing and light sheet fluorescence microscopy for the three-dimensional analysis of sensory and sympathetic nerve endings that innervate bone and dental tissue of mice](https://onlinelibrary.wiley.com/doi/full/10.1002/cne.25582)
 
 
 ## Construction notes
@@ -395,4 +395,4 @@ __Configuration__
 ## Useful links
 
 - [Grasshopper3 USB 3.1 manual, PDF](https://www.physics.utoronto.ca/apl/fvf/GS3-U3-Technical-Reference.pdf)
-- [Step-by-step to controlling multiple light sources with an Arduino for sequenceable MDA by Guillaume Witz & Thomas Julou](https://github.com/nimwegenLab/MiM_NikonTi/blob/master/Docs/NikonTi_hardware_triggering.m)
+- [Step-by-step to controlling multiple light sources with an Arduino for sequenceable MDA by Guillaume Witz & Thomas Julou](https://github.com/nimwegenLab/MiM_NikonTi/blob/master/Docs/NikonTi_hardware_triggering.md)
