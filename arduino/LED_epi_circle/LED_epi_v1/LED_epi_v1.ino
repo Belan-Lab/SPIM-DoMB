@@ -1,38 +1,39 @@
 #include <FastLED.h>
 #include <Encoder.h>
 
-#define LED_PIN     6      // Пін для підключення Data In гірлянди
-#define NUM_LEDS    16     // Кількість LED в гірлянді (змініть на свою)
-#define BRIGHTNESS  32    // Яскравість за замовчуванням (0-255)
-#define MAX_BRIGHTNESS 64 // Максимальна яскравість
-#define LED_TYPE    WS2812B  // Тип LED
-#define COLOR_ORDER GRB     // Порядок кольорів
+// LED set up
+#define LED_PIN        6        // LED Data In PIN
+#define NUM_LEDS       16       // LED number
+#define BRIGHTNESS     32       // Startup brightness
+#define MAX_BRIGHTNESS 64       // Max brightness (limit 255)
+#define LED_TYPE       WS2812B  // LED type
+#define COLOR_ORDER    GRB      // Colours order
 
-// Піни енкодера
-#define ENCODER_PIN_A 2
-#define ENCODER_PIN_B 3
-#define ENCODER_BUTTON 4   // Пін для кнопки енкодера
+// Encoder pins
+#define ENCODER_PIN_A  2
+#define ENCODER_PIN_B  3
+#define ENCODER_BUTTON 4
 
-// Режими роботи
-#define MODE_MOVE     0    // Режим руху сегмента
-#define MODE_BRIGHTNESS 1  // Режим регулювання яскравості
-#define MODE_LENGTH   2    // Режим регулювання довжини сегмента
+// Modes
+#define MODE_MOVE       0
+#define MODE_BRIGHTNESS 1
+#define MODE_LENGTH     2
 
 CRGB leds[NUM_LEDS];
 Encoder myEncoder(ENCODER_PIN_A, ENCODER_PIN_B);
 
 // Variables for tracking
 long oldPosition = 0;      // Previous encoder position
-int segmentLength = 8;     // Length of illuminated segment
+int segmentLength = NUM_LEDS;     // Length of illuminated segment
 int currentPosition = 0;   // Current position of the first LED in segment
-int currentMode = MODE_MOVE; // Current operating mode
+int currentMode = MODE_BRIGHTNESS; // Current operating mode
 int currentBrightness = BRIGHTNESS; // Current brightness level
 bool ledsOn = true;        // Flag for LEDs on/off state
 
 // Colors for different modes
 CRGB moveColor = CRGB::White;      // Color when in movement mode
 CRGB brightnessColor = CRGB::White; // Color when in brightness mode
-CRGB lengthColor = CRGB::Red;     // Color when in length mode
+CRGB lengthColor = CRGB::Yellow;     // Color when in length mode
 
 // Button handling variables
 int buttonState = HIGH;     // Current button state
@@ -48,7 +49,7 @@ bool awaitingDoubleClick = false;
 // Long press detection
 unsigned long buttonPressStart = 0;
 bool longPressHandled = false;
-unsigned long longPressDuration = 2000; // 2 seconds for long press
+unsigned long longPressDuration = 1000; // seconds for long press
 
 void setup() {
   // Initialize FastLED
@@ -62,10 +63,10 @@ void setup() {
   // Initialize serial for debugging
   Serial.begin(9600);
   Serial.println("Starting LED ring control with encoder");
-  Serial.println("Default mode: MOVE SEGMENT");
-  Serial.println("Single click: Toggle brightness adjustment");
-  Serial.println("Double click: Toggle segment length adjustment");
-  Serial.println("Long press (2s): Turn LEDs on/off");
+  Serial.println("Default mode: Brightness adjustment");
+  Serial.println("Single click: Segment move");
+  Serial.println("Double click: Segment length adjustment");
+  Serial.println("Long press (1s): Turn LEDs on/off");
   
   // Initial LED update
   updateLEDs();
@@ -97,10 +98,10 @@ void loop() {
           // BRIGHTNESS ADJUSTMENT MODE
           if (newPosition > oldPosition) {
             // Increase brightness (max is MAX_BRIGHTNESS)
-            currentBrightness = min(currentBrightness + 5, MAX_BRIGHTNESS);
+            currentBrightness = min(currentBrightness + 2, MAX_BRIGHTNESS);
           } else {
-            // Decrease brightness (min is 5)
-            currentBrightness = max(currentBrightness - 5, 5);
+            // Decrease brightness (min is 2)
+            currentBrightness = max(currentBrightness - 2, 2);
           }
           FastLED.setBrightness(currentBrightness);
           Serial.print("Brightness: ");
@@ -186,7 +187,17 @@ void loop() {
 
 void handleButtonPress() {
   unsigned long currentTime = millis();
-  
+
+
+  // Check if LEDs are off - turn them on with a quick press
+  if (!ledsOn) {
+    ledsOn = true;
+    Serial.println("LEDs turned ON");
+    updateLEDs();
+    return;
+  }
+
+
   // Check if this could be a double click
   if (awaitingDoubleClick) {
     // This is a double click!
@@ -234,7 +245,7 @@ void updateLEDs() {
       break;
     case MODE_LENGTH:
       currentColor = lengthColor;
-      displayBrightness = 16; // Fixed low brightness in length mode
+      displayBrightness = 8; // Fixed low brightness in length mode
       break;
   }
   
@@ -248,7 +259,7 @@ void updateLEDs() {
   // In brightness mode, use the current brightness
   // But in length mode, override with fixed low brightness
   if (currentMode == MODE_LENGTH) {
-    FastLED.setBrightness(16);
+    FastLED.setBrightness(8);
   } else {
     FastLED.setBrightness(currentBrightness);
   }
